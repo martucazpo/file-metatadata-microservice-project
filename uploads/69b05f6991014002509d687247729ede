@@ -1,0 +1,33 @@
+
+/* VERY GOOD Mr McQuade! The REACT is excellent. The JQuery is very good, but perhaps it never emerges? It could also be a function.*/
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+// Javascript
+let body = document.getElementById('body')
+function makeSquare(){
+let square = document.createElement('div')
+body.appendChild(square)
+square.style.width = '300px'
+square.style.height = '300px'
+square.style.background = 'red'
+}
+
+
+// Jquery
+$('#sq').css('background','red');
+$('#sq').css('width', '300px');
+$('#sq').css('height', '300px');
+    
+//React
+class Square extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return (
+            <div style={{background: "red", width: 300, height: 300}}></div>
+        )
+    }
+}

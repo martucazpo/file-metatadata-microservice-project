@@ -18,9 +18,13 @@ app.get('/hello', function(req, res){
   res.json({greetings: "Hello, API"});
 });
 
-app.post('/profile', upload.single('avatar'), function (req, res, next) {
+app.post('/api/fileanalyse', upload.single('upfile'), function (req, res, next) {
+  const { originalname: name, mimetype: type, size } = req.file;
+  //console.log(req.file);
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
+  res.json({ name, type, size });
+
 })
 
 app.listen(process.env.PORT || 3000, function () {
