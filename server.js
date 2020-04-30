@@ -4,7 +4,7 @@ var express = require('express');
 var cors = require('cors');
 
 const multer = require('multer');
-
+const upload = multer({ dest: 'uploads/' })
 var app = express();
 
 app.use(cors());
@@ -17,6 +17,11 @@ app.get('/', function (req, res) {
 app.get('/hello', function(req, res){
   res.json({greetings: "Hello, API"});
 });
+
+app.post('/profile', upload.single('avatar'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+})
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Node.js always, ALWAYS listening ...');
